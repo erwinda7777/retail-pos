@@ -19,6 +19,7 @@ app.use(cors({ origin: env.corsOrigin, credentials: true }));
 app.use(express.json({ limit: "2mb" }));
 app.use(morgan("dev"));
 
+app.get("/", (_req, res) => res.json({ name: "Retail POS API", ok: true }));
 app.get("/health", (_req, res) => res.json({ ok: true }));
 app.use("/api/auth", authRoutes);
 app.use("/api/categories", categoryRoutes);
